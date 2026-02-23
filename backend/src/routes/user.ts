@@ -34,7 +34,7 @@ userRouter.post('/signup', async (c) => {
       })
       const jwt = await sign({
         id: user.id
-      }, c.env.JWT_SECRET);
+      }, c.env.JWT_SECRET, "HS256");   // ← added "HS256"
   
       return c.text(jwt)
     } catch(e) {
@@ -74,7 +74,7 @@ userRouter.post('/signup', async (c) => {
       }
       const jwt = await sign({
         id: user.id
-      }, c.env.JWT_SECRET);
+      }, c.env.JWT_SECRET, "HS256");   // ← added "HS256"
   
       return c.text(jwt)
     } catch(e) {
